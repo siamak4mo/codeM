@@ -1,9 +1,23 @@
 import random
-from valid_city_codes import find_name, get_random
+from valid_city_codes import valid_codes, valid_names
+
+
+def find_nameH(code):
+    for i in range(len(valid_codes)):
+        if(valid_codes[i].count(str(code)) != 0):
+            return i
+    return -1
+
+
+def find_name(code):
+    i = find_nameH(code)
+    if(i == -1):
+        return None
+    else:
+        return valid_names[i]
 
 
 def is_validH(codem):
-    # codem is a string and len(codem) must be 10
     # this is a helper function, dont use it
     ws = 0
     for i in range(8, -1, -1):
@@ -71,7 +85,7 @@ def is_valid_v(codem):
 #
 # make a random melli code
 def mk_rand_codem():
-    codem = get_random()
+    codem = random.choice(random.choice(valid_codes))
     for _ in range((9-len(codem))):
         codem += str(random.randint(0, 9))
     codem += str(is_validH(codem + '0'))
