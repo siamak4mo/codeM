@@ -16,25 +16,52 @@ def is_validH(codem):
 
 
 #
+#   return city name of codem
+#   if not exist return None
+def city_name(codem):
+    city_name2 = find_name(codem[0:2])
+    city_name3 = find_name(codem[0:3])
+    if(city_name2 is None and city_name3 is None):
+        return None
+    else:
+        return(city_name2 if city_name3 is None else city_name3)
+
+
+#
 # codem: @String of melli (meili) code
 #        if len(codem) > 10 then return False
 #        if len(codem) < 8  then will append enough 0 at the start
+# output is an array (len=2)
+# is_valid(*)[0]: validation result,  is_valid(*)[1]: city name
 def is_valid(codem):
+    if(len(codem) > 10 or len(codem) < 7):
+        return([False, None])
+    codem = "0"*(10-len(codem)) + codem
+    last_c = is_validH(codem)
+    if(last_c == int(codem[9])):
+        return([True, city_name(codem)])
+    else:
+        return([False, None])
+
+
+#
+# verbos version of is_valid
+# output is a string message
+def is_valid_v(codem):
     if(len(codem) > 10 or len(codem) < 7):
         return "length of your input is not valid"
     codem = "0"*(10-len(codem)) + codem
     last_c = is_validH(codem)
     if(last_c == int(codem[9])):
         mess = "this code is Valid,\n"
-        city_name2 = find_name(codem[0:2])
-        city_name3 = find_name(codem[0:3])
-        if(city_name2 is None and city_name3 is None):
+        cn = city_name(codem)
+        if(cn is None):
             mess += "but city code is not valid or is not in this archive\n"
             mess += "if you are sure about correctness of your melli code\n"
             mess += "please make a pull request on our github page."
         else:
             mess += "محل صدور: "
-            mess += city_name2 if city_name3 is None else city_name3
+            mess += cn
         return mess
     else:
         return("** Not Valid, \n" +
