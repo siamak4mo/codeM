@@ -5,7 +5,7 @@ from codem import is_valid_v, mk_rand_codem
 
 if __name__ == '__main__':
     quit = 0
-    print("1 to check and 2 to gen")
+    print(" (enter 1 to check and 2 to generate random melli code)")
     while(not quit):
         comm = input("> ")
         if(comm == '1'):
