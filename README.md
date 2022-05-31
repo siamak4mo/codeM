@@ -4,7 +4,7 @@
 ##### Using:
 ```
 ➞  ./main.py                                                     
-1 to check and 2 to gen
+ (enter 1 to check and 2 to generate random melli code)
 > 
 > 
 > 2
