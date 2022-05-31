@@ -12,5 +12,7 @@ if __name__ == '__main__':
             print(is_valid_v(input("your code> ")))
         elif(comm == '2'):
             print(mk_rand_codem())
+        elif(comm.replace(' ','') == ''):
+            pass
         else:
             quit = 1
