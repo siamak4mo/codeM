@@ -21,7 +21,7 @@ def is_validH(codem):
 #        if len(codem) < 8  then will append enough 0 at the start
 def is_valid(codem):
     if(len(codem) > 10 or len(codem) < 7):
-        return False
+        return "length of your input is not valid"
     codem = "0"*(10-len(codem)) + codem
     last_c = is_validH(codem)
     if(last_c == int(codem[9])):
