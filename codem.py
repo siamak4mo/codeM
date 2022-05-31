@@ -84,8 +84,12 @@ def is_valid_v(codem):
 
 #
 # make a random melli code
-def mk_rand_codem():
-    codem = random.choice(random.choice(valid_codes))
+# base will be at the beginning of output
+def mk_rand_codem(base=None):
+    if(base is None):
+        codem = random.choice(random.choice(valid_codes))
+    else:
+        codem = base
     for _ in range((9-len(codem))):
         codem += str(random.randint(0, 9))
     codem += str(is_validH(codem + '0'))
