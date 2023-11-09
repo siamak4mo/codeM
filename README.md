@@ -1,7 +1,7 @@
 # codeM
 ### چک کننده کد ملی و تعیین محل صدور  -  ساخت کد ملی رندم
 
-##### Using:
+##### Usage:
 ```
 ➞  ./main.py                                                          
  (enter 1 to check and 2 to generate random melli code)
